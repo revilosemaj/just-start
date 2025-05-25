@@ -19,3 +19,12 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: #000 1px 0 10px;
+  }
+  .text-shadow-none {
+    text-shadow: none;
+  }
+}
