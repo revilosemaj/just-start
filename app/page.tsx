@@ -22,7 +22,7 @@ export default function Home() {
             </div>
           </div>
           <div className="w-full h-full flex justify-center items-center">
-            <div className="relative w-[38rem] h-[38rem] border-dashed  flex justify-center items-center bg-[url(/doodles_bg.png)] bg-no-repeat bg-cover bg-black rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] overflow-hidden">
+            <div className="relative w-[38rem] h-[38rem] flex justify-center items-center bg-[url(/doodles_bg.png)] bg-no-repeat bg-cover bg-black rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] overflow-hidden">
               <Image
                 src="/hero_img.png"
                 width={550}
@@ -83,7 +83,9 @@ export default function Home() {
                 My recent work
               </h1>
               <div className="flex mb-10">
-                <button>All</button>
+                <button className="px-4 py-2 border-black border-2 rounded-full hover:text-black hover:bg-white text-white bg-black">
+                  All
+                </button>
               </div>
               <div className="flex item-center">
                 <div className="basis-2/6 h-[20rem] border-dashed border-red-200 border-4 mr-10 flex items-center justify-center">
@@ -113,22 +115,22 @@ export default function Home() {
             <div className="w-[38rem]">
               <form className="w-full h-full flex-col">
                 <div className="flex justify-between w-full h-full mb-5">
-                  <div className="flex-col">
+                  <div className="flex-col basis-5/12">
                     <label>Your Name</label>
                     <input
                       type="text"
                       name="name"
                       placeholder="Name"
-                      className="w-full"
+                      className="w-full px-4 py-4 mt-2 rounded-md outline-none text-black"
                     />
                   </div>
-                  <div className="flex-col">
+                  <div className="flex-col basis-5/12">
                     <label>Your Email</label>
                     <input
                       type="email"
                       name="email"
                       placeholder="Email"
-                      className="w-full"
+                      className="w-full px-4 py-4 mt-2 rounded-md outline-none text-black"
                     />
                   </div>
                 </div>
@@ -137,17 +139,22 @@ export default function Home() {
                   <textarea
                     name="message"
                     placeholder="Message"
-                    className="w-full"
+                    className="w-full px-4 py-4 mt-2 rounded-md outline-none text-black"
                   />
                 </div>
-                <button type="submit">Send Message</button>
+                <button
+                  type="submit"
+                  className="mt-4 px-6 py-4 bg-[#00ADB5] text-white rounded-md hover:text-black"
+                >
+                  Send Message
+                </button>
               </form>
             </div>
           </div>
         </section>
       </main>
-      <footer className="w-full">
-        <div className="w-full h-20 flex justify-center items-center bg-[#00ADB5] text-white">
+      <footer className="w-full border-t-2 border-[#00ADB5]">
+        <div className="w-full h-20 flex justify-center items-center bg-black text-white">
           <p>All right reserved</p>
         </div>
       </footer>
