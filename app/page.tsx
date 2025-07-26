@@ -5,15 +5,15 @@ export default function Home() {
     <>
       <main className="relative">
         {/* Hero section */}
-        <section className="sticky top-0 h-screen flex items-center justify-center bg-white">
+        <section className="sticky top-0 h-screen flex items-center justify-center bg-black">
           <div className="w-full h-full flex justify-center items-center">
             <div className="flex-col items-center w-[41rem] justify-center bg-black text-center">
-              <h1 className="text-7xl font-extrabold text-white mt-4">
+              <h1 className="text-7xl font-extrabold text-[#eceabb] mt-4">
                 Oliver James Aco
               </h1>
               <hr className="w-full h-1 mx-auto my-4 bg-gray-100 border-0 dark:bg-white" />
               <p className="text-4xl mb-5 font-extrabold text-[#00ADB5]">
-                Web Developer | React Developer
+                Frontend Developer
               </p>
 
               <button className="bg-white px-8 py-3 rounded-full flex m-auto mb-4 text-black hover:bg-[#00ADB5] hover:text-white">
@@ -22,19 +22,26 @@ export default function Home() {
             </div>
           </div>
           <div className="w-full h-full flex justify-center items-center">
-            <div className="relative w-[38rem] h-[38rem] flex justify-center items-center bg-[url(/doodles_bg.png)] bg-no-repeat bg-cover bg-black rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] overflow-hidden">
+            <div className="relative w-[38rem] h-[38rem] flex justify-center items-center bg-[url(/doodles_bg.png)] bg-no-repeat bg-cover bg-black rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] overflow-hidden drop-shadow-custom">
               <Image
                 src="/hero_img.png"
                 width={550}
                 height={550}
                 alt="hero image"
-                className="rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] absolute bottom-[-1.4rem] "
+                className="rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] absolute bottom-[-1.4rem]"
               />
             </div>
           </div>
         </section>
         {/* About section */}
-        <section className="sticky top-0 h-screen flex items-center justify-center bg-black text-[#00ADB5]">
+        <section
+          className="sticky top-0 h-screen flex items-center justify-center bg-black text-[#00ADB5] bg-gradient-to-b from-transparent to-white/30 backdrop-blur-sm [border-image-slice:15_15_15_15_fill]
+  [border-image-width:10px]
+  [border-image-outset:0]
+  [border-image-repeat:round]
+  [border-image-source:url('https://mdn.github.io/css-examples/tools/border-image-generator/border-image-3.png')]
+  border-solid"
+        >
           <div className="w-full h-full flex justify-center items-center">
             <div className="flex-col items-start w-[38rem]">
               <h1 className="text-6xl mb-5 text-black font-extrabold bg-white">
