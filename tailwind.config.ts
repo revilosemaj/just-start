@@ -14,7 +14,8 @@ export default {
       },
       dropShadow: {
         custom: "8px 6px 10px #eceabb",
-        glow: "0 0 8px rgba(255, 255, 0, 0.75)",
+        gray: "0 0 8px #00ADB5",
+        yellow: "0 0 8px #eceabb",
       },
     },
   },

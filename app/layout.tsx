@@ -10,7 +10,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Just Start",
   description:
-    "This is my portfolio to show case all my experience and knowdledge in Nextjs",
+    "This is my portfolio to show case all my experience and knowledge in Nextjs",
 };
 
 export default function RootLayout({
