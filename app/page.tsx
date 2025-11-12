@@ -11,6 +11,37 @@ export default function Home() {
   );
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isRocketLaunching, setIsRocketLaunching] = useState(false);
+  const [isHeroHovered, setIsHeroHovered] = useState(false);
+  const [visibleWords, setVisibleWords] = useState(0);
+
+  // Word-by-word animation effect
+  useEffect(() => {
+    if (isHeroHovered) {
+      setVisibleWords(0);
+      const words = ["Hi!", "I'm", "Oliver.", "How's", "it", "going!"];
+      const timeouts: NodeJS.Timeout[] = [];
+
+      // Reset and start animation
+      const initialTimeout = setTimeout(() => {
+        setVisibleWords(1); // Show first word immediately after a brief delay
+      }, 100);
+      timeouts.push(initialTimeout);
+
+      // Show remaining words sequentially
+      words.slice(1).forEach((_, index) => {
+        const timeout = setTimeout(() => {
+          setVisibleWords(index + 2); // +2 because index starts at 0 and we already showed word 1
+        }, 100 + (index + 1) * 200); // 200ms delay between each word
+        timeouts.push(timeout);
+      });
+
+      return () => {
+        timeouts.forEach((timeout) => clearTimeout(timeout));
+      };
+    } else {
+      setVisibleWords(0);
+    }
+  }, [isHeroHovered]);
 
   // Refs for each section
   const aboutRef = useRef<HTMLElement>(null);
@@ -112,21 +143,24 @@ export default function Home() {
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
             <button
               onClick={() => scrollToSection("about")}
-              className="text-white hover:text-[#00ADB5] transition-colors font-medium text-sm lg:text-base"
+              className="group relative px-4 py-2 text-white transition-colors font-medium text-sm lg:text-base overflow-hidden"
             >
-              About
+              <span className="relative z-10">About</span>
+              <span className="absolute inset-0 bg-gradient-to-r from-[#00ADB5] to-[#8a2be2] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
             </button>
             <button
               onClick={() => scrollToSection("projects")}
-              className="text-white hover:text-[#00ADB5] transition-colors font-medium text-sm lg:text-base"
+              className="group relative px-4 py-2 text-white transition-colors font-medium text-sm lg:text-base overflow-hidden"
             >
-              Projects
+              <span className="relative z-10">Projects</span>
+              <span className="absolute inset-0 bg-gradient-to-r from-[#00ADB5] to-[#8a2be2] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="text-white hover:text-[#00ADB5] transition-colors font-medium text-sm lg:text-base"
+              className="group relative px-4 py-2 text-white transition-colors font-medium text-sm lg:text-base overflow-hidden"
             >
-              Contact
+              <span className="relative z-10">Contact</span>
+              <span className="absolute inset-0 bg-gradient-to-r from-[#00ADB5] to-[#8a2be2] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
             </button>
           </div>
 
@@ -288,14 +322,56 @@ export default function Home() {
             </div>
           </div> */}
           <div className="aura-container w-full h-full flex justify-center items-center relative z-10 px-4">
-            <div className="relative w-full max-w-[20rem] sm:max-w-[28rem] md:max-w-[32rem] lg:max-w-[38rem] aspect-square flex justify-center items-center bg-[url(/doodles_bg.png)] bg-no-repeat bg-cover bg-black rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] overflow-hidden">
-              <Image
-                src="/hero_img.png"
-                width={550}
-                height={550}
-                alt="hero image"
-                className="rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] absolute bottom-[-1.4rem] z-10 w-full h-auto max-w-[90%] sm:max-w-[85%] md:max-w-[80%]"
-              />
+            <div className="relative w-full max-w-[20rem] sm:max-w-[28rem] md:max-w-[32rem] lg:max-w-[38rem]">
+              <div
+                onMouseEnter={() => setIsHeroHovered(true)}
+                onMouseLeave={() => setIsHeroHovered(false)}
+                className="relative w-full aspect-square flex justify-center items-center bg-[url(/doodles_bg.png)] bg-no-repeat bg-cover rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] overflow-hidden cursor-pointer transition-all duration-300"
+              >
+                <Image
+                  src="/hero_img.png"
+                  width={550}
+                  height={550}
+                  alt="hero image"
+                  className={`rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] absolute bottom-[-1.4rem] z-10 w-full h-auto max-w-[90%] sm:max-w-[85%] md:max-w-[80%] transition-opacity duration-500 ${
+                    isHeroHovered ? "opacity-0" : "opacity-100"
+                  }`}
+                />
+                <Image
+                  src="/hero_img2.png"
+                  width={550}
+                  height={550}
+                  alt="hero image hover"
+                  className={`rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] absolute bottom-[-1.4rem] z-10 w-full h-auto max-w-[90%] sm:max-w-[85%] md:max-w-[80%] transition-opacity duration-500 ${
+                    isHeroHovered ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              </div>
+              {isHeroHovered && (
+                <div className="absolute top-[20%] left-[50%] -translate-x-1/2 sm:top-[25%] sm:left-[55%] sm:-translate-x-0 md:top-[30%] md:left-[30%] lg:top-[35%] lg:left-[35%] z-30 pointer-events-none w-[90%] max-w-[280px] sm:w-auto sm:max-w-none">
+                  <div className="comic-bubble hero-hover-text relative bg-gradient-to-br from-[#0a0a0f] via-[#0f0a1a] to-[#1a0033] backdrop-blur-md rounded-xl sm:rounded-2xl px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 shadow-2xl border border-[#00ADB5] sm:border-2 w-full">
+                    <p className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white flex flex-wrap items-center justify-center gap-1 sm:gap-1.5 md:gap-2 drop-shadow-[0_0_6px_rgba(0,173,181,0.8)] sm:drop-shadow-[0_0_8px_rgba(0,173,181,0.8)]">
+                      {["Hi!", "I'm", "Oliver.", "How's", "it", "going!"].map(
+                        (word, index) => (
+                          <span
+                            key={index}
+                            className={`inline-block transition-all duration-300 ${
+                              index < visibleWords
+                                ? "opacity-100 translate-y-0 scale-100"
+                                : "opacity-0 translate-y-2 scale-50"
+                            }`}
+                          >
+                            {word}
+                          </span>
+                        )
+                      )}
+                    </p>
+                    {/* Bubble tail pointing down-left toward head - responsive sizing */}
+                    <div className="absolute top-full left-[20%] sm:left-[25%] w-0 h-0 border-l-[8px] border-r-[8px] border-t-[14px] sm:border-l-[10px] sm:border-r-[10px] sm:border-t-[16px] md:border-l-[12px] md:border-r-[12px] md:border-t-[20px] border-l-transparent border-r-transparent border-t-[#00ADB5]"></div>
+                    <div className="absolute top-full left-[20%] sm:left-[25%] translate-y-[-2px] w-0 h-0 border-l-[6px] border-r-[6px] border-t-[12px] sm:border-l-[8px] sm:border-r-[8px] sm:border-t-[14px] md:border-l-[10px] md:border-r-[10px] md:border-t-[18px] border-l-transparent border-r-transparent border-t-[#0a0a0f]"></div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -332,12 +408,12 @@ export default function Home() {
                     : "opacity-0 translate-y-6"
                 }`}
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Architecto vel corporis iusto. Minus laborum optio pariatur
-                nihil explicabo! Quam quidem tempore tempora expedita ea labore
-                rem asperiores magnam error nesciunt! Lorem ipsum, dolor sit
-                amet consectetur adipisicing elit. Eaque cumque inventore minima
-                repellendus iusto corrupti totam commodi.
+                Hi, I’m Oliver, a Web Developer from the Philippines with over
+                seven years of experience in the IT industry. Throughout my
+                career, I’ve held various roles including Web Developer,
+                Software Engineering Analyst, and Frontend Developer (ReactJS),
+                allowing me to build a strong foundation across the full
+                software development lifecycle.
               </p>
               <p
                 className={`mb-4 text-justify text-sm sm:text-base text-white/90 leading-relaxed transition-all duration-1000 delay-300 ${
@@ -346,12 +422,12 @@ export default function Home() {
                     : "opacity-0 translate-y-6"
                 }`}
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Architecto vel corporis iusto. Minus laborum optio pariatur
-                nihil explicabo! Quam quidem tempore tempora expedita ea labore
-                rem asperiores magnam error nesciunt! Lorem ipsum, dolor sit
-                amet consectetur adipisicing elit. Eaque cumque inventore minima
-                repellendus iusto corrupti totam commodi.
+                My expertise spans requirement analysis, development, testing,
+                and implementation, as well as collaboration with
+                cross-functional teams to deliver high-quality, user-focused
+                solutions. I’m also skilled in troubleshooting, debugging, and
+                enhancing web applications to improve performance and
+                functionality.
               </p>
               <p
                 className={`mb-4 text-justify text-sm sm:text-base text-white/90 leading-relaxed transition-all duration-1000 delay-400 ${
@@ -360,12 +436,11 @@ export default function Home() {
                     : "opacity-0 translate-y-6"
                 }`}
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Architecto vel corporis iusto. Minus laborum optio pariatur
-                nihil explicabo! Quam quidem tempore tempora expedita ea labore
-                rem asperiores magnam error nesciunt! Lorem ipsum, dolor sit
-                amet consectetur adipisicing elit. Eaque cumque inventore minima
-                repellendus iusto corrupti totam commodi.
+                Known for my solution-oriented mindset and positive attitude, I
+                approach challenges with a focus on progress and teamwork. I’m
+                now seeking opportunities that align with my technical expertise
+                and long-term career goals—particularly in environments that
+                value innovation, continuous learning, and professional growth.
               </p>
             </div>
           </div>
@@ -1155,8 +1230,9 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="w-full border-t-1 border-[#00ADB5]">
-        <div className="w-full min-h-16 sm:h-20 flex justify-center items-center bg-black text-white px-4">
+
+      <footer className="w-full border-t-1 border-[#00ADB5] cosmic-bg-contact">
+        <div className="w-full min-h-16 sm:h-20 flex justify-center items-center text-white px-4">
           <p className="text-sm sm:text-base text-center">All right reserved</p>
         </div>
       </footer>
