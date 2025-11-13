@@ -9,9 +9,9 @@ const exo = Exo({
 });
 
 export const metadata: Metadata = {
-  title: "Just Start",
+  title: "OJA - Portfolio",
   description:
-    "This is my portfolio to show case all my experience and knowledge in Nextjs",
+    "This is my portfolio website to show case all my experience and knowledge in web development",
 };
 
 export default function RootLayout({
