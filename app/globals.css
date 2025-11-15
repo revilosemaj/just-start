@@ -614,7 +614,8 @@ body {
 }
 
 @keyframes bubbleFloat {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -635,10 +636,8 @@ body {
 
 .comic-bubble {
   animation: bubblePop 0.4s ease-out forwards,
-             bubbleFloat 3s ease-in-out infinite;
+    bubbleFloat 3s ease-in-out infinite;
   animation-delay: 0s, 0.4s;
-  box-shadow: 0 4px 20px rgba(0, 173, 181, 0.5),
-              0 0 40px rgba(0, 173, 181, 0.3),
-              0 0 60px rgba(138, 43, 226, 0.2),
-              inset 0 0 20px rgba(0, 173, 181, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 173, 181, 0.5), 0 0 40px rgba(0, 173, 181, 0.3),
+    0 0 60px rgba(138, 43, 226, 0.2), inset 0 0 20px rgba(0, 173, 181, 0.1);
 }

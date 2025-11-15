@@ -2,13 +2,8 @@
 
 import Nav from "@/components/Nav";
 import FullScreenMenu from "@/components/FullScreenMenu";
-import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
-import Hero from "@/components/PageSections/Hero";
-import About from "@/components/PageSections/About";
-import Projects from "@/components/PageSections/Projects";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
-import Contact from "@/components/PageSections/Contact";
 import Footer from "@/components/Footer";
 import Main from "@/components/PageSections/Main";
 
@@ -59,7 +54,6 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show button when user scrolls down more than 300px
       setShowScrollTop(window.scrollY > 300);
     };
 
@@ -67,7 +61,6 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -79,7 +72,6 @@ export default function Home() {
     };
   }, [isMenuOpen]);
 
-  // Intersection Observer for scroll animations
   useEffect(() => {
     const observerOptions = {
       threshold: 0.2,
@@ -94,7 +86,6 @@ export default function Home() {
       });
     }, observerOptions);
 
-    // Observe all sections
     const sections = [
       aboutRef.current,
       projectsRef.current,
@@ -116,16 +107,15 @@ export default function Home() {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      setIsMenuOpen(false); // Close menu on mobile after clicking
+      setIsMenuOpen(false);
     }
   };
 
   const scrollToTop = () => {
-    if (isRocketLaunching) return; // Prevent multiple clicks
+    if (isRocketLaunching) return;
 
     setIsRocketLaunching(true);
 
-    // Use scrollToSection which already works in the app
     setTimeout(() => {
       scrollToSection("hero");
     }, 800);
@@ -141,6 +131,7 @@ export default function Home() {
         scrollToSection={scrollToSection}
         setIsMenuOpen={setIsMenuOpen}
         isMenuOpen={isMenuOpen}
+        isRocketLaunching={isRocketLaunching}
       />
 
       <FullScreenMenu

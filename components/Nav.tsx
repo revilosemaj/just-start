@@ -1,18 +1,38 @@
+"use client";
+import { useState, useEffect } from "react";
+
 export default function Nav({
   scrollToSection,
   setIsMenuOpen,
   isMenuOpen,
+  isRocketLaunching,
 }: {
   scrollToSection: (id: string) => void;
   setIsMenuOpen: (isOpen: boolean) => void;
   isMenuOpen: boolean;
+  isRocketLaunching: boolean;
 }) {
+  const [activeMenu, setActiveMenu] = useState("Hero");
+
+  useEffect(() => {
+    if (isRocketLaunching) {
+      setTimeout(() => {
+        setActiveMenu("Hero");
+      }, 1000);
+    }
+  }, [isRocketLaunching]);
+
+  const handleGotoSection = (id: string) => {
+    setActiveMenu(id);
+    scrollToSection(id);
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
         {/* OJA Logo */}
         <button
-          onClick={() => scrollToSection("hero")}
+          onClick={() => handleGotoSection("hero")}
           className="text-xl sm:text-2xl font-bold text-white hover:text-[#00ADB5] transition-colors"
         >
           OJA
@@ -21,25 +41,37 @@ export default function Nav({
         {/* Desktop Navigation Links */}
         <div className="hidden md:flex items-center gap-6 lg:gap-8">
           <button
-            onClick={() => scrollToSection("about")}
+            onClick={() => handleGotoSection("about")}
             className="group relative px-4 py-2 text-white transition-colors font-medium text-sm lg:text-base overflow-hidden"
           >
             <span className="relative z-10">About</span>
-            <span className="absolute inset-0 bg-gradient-to-r from-[#00ADB5] to-[#8a2be2] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+            <span
+              className={`absolute inset-0 bg-gradient-to-r from-[#00ADB5] to-[#8a2be2] group-hover:opacity-100 ${
+                activeMenu === "about" ? "opacity-100" : "opacity-0"
+              } transition-opacity duration-300 rounded-lg`}
+            />
           </button>
           <button
-            onClick={() => scrollToSection("projects")}
+            onClick={() => handleGotoSection("projects")}
             className="group relative px-4 py-2 text-white transition-colors font-medium text-sm lg:text-base overflow-hidden"
           >
             <span className="relative z-10">Projects</span>
-            <span className="absolute inset-0 bg-gradient-to-r from-[#00ADB5] to-[#8a2be2] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+            <span
+              className={`absolute inset-0 bg-gradient-to-r from-[#00ADB5] to-[#8a2be2] group-hover:opacity-100 ${
+                activeMenu === "projects" ? "opacity-100" : "opacity-0"
+              } transition-opacity duration-300 rounded-lg`}
+            />
           </button>
           <button
-            onClick={() => scrollToSection("contact")}
+            onClick={() => handleGotoSection("contact")}
             className="group relative px-4 py-2 text-white transition-colors font-medium text-sm lg:text-base overflow-hidden"
           >
             <span className="relative z-10">Contact</span>
-            <span className="absolute inset-0 bg-gradient-to-r from-[#00ADB5] to-[#8a2be2] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+            <span
+              className={`absolute inset-0 bg-gradient-to-r from-[#00ADB5] to-[#8a2be2] group-hover:opacity-100 ${
+                activeMenu === "contact" ? "opacity-100" : "opacity-0"
+              } transition-opacity duration-300 rounded-lg`}
+            />
           </button>
         </div>
 

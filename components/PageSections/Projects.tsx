@@ -74,11 +74,8 @@ export default function Projects({
                       </svg>
                     </div>
                     <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
-                      Web Development
+                      Coming Soon
                     </h3>
-                    <p className="text-white/70 text-sm sm:text-base">
-                      Modern & Responsive Solutions
-                    </p>
                   </div>
                 </div>
 
@@ -102,11 +99,8 @@ export default function Projects({
                       </svg>
                     </div>
                     <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
-                      React Applications
+                      Coming Soon
                     </h3>
-                    <p className="text-white/70 text-sm sm:text-base">
-                      Interactive & Dynamic Experiences
-                    </p>
                   </div>
                 </div>
 
@@ -130,11 +124,8 @@ export default function Projects({
                       </svg>
                     </div>
                     <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
-                      Next.js Projects
+                      Coming Soon
                     </h3>
-                    <p className="text-white/70 text-sm sm:text-base">
-                      Fast & Scalable Solutions
-                    </p>
                   </div>
                 </div>
               </div>
