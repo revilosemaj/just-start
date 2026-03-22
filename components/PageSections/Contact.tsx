@@ -44,7 +44,7 @@ export default function Contact({
           message: formData.message,
           time: new Date().toLocaleString(),
         },
-        publicKey
+        publicKey,
       );
 
       setSubmitStatus({
@@ -65,13 +65,17 @@ export default function Contact({
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
   return (
-    <section ref={contactRef} id="contact" className="cosmic-bg-contact">
+    <section
+      ref={contactRef}
+      id="contact"
+      className="cosmic-bg-contact shiver-border-contact"
+    >
       <div className="sticky top-0 min-h-screen flex flex-col lg:flex-row items-center justify-centertext-[#00ADB5] py-12 sm:py-16 lg:py-0 lg:max-w-[1024px] mx-auto">
         <div
           className={`w-full h-full flex justify-center items-center px-4 sm:px-6 lg:px-8 mb-8 lg:mb-0 transition-all duration-1000 ${
@@ -82,7 +86,7 @@ export default function Contact({
         >
           <div className="flex flex-col items-center w-full max-w-[38rem]">
             <h1
-              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-5 text-center transition-all duration-1000 delay-100 ${
+              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-5 text-center transition-all duration-1000 delay-100 text-white ${
                 visibleSections.has("contact")
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 -translate-y-8"

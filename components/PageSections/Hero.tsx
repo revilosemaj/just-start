@@ -12,7 +12,7 @@ export default function Hero({
   return (
     <section
       id="hero"
-      className="sticky top-0 h-screen flex items-center justify-center cosmic-bg"
+      className="sticky top-0 h-screen flex items-center justify-center cosmic-bg shiver-border-hero"
     >
       <div className="aura-container w-full h-full flex justify-center items-center relative z-10 px-4">
         <div className="relative w-full max-w-[20rem] sm:max-w-[28rem] md:max-w-[32rem] lg:max-w-[38rem]">

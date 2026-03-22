@@ -26,25 +26,22 @@ export default function Main({
 }) {
   return (
     <main className="relative">
-      {/* Hero section */}
       <Hero
         setIsHeroHovered={setIsHeroHovered}
         isHeroHovered={isHeroHovered}
         visibleWords={visibleWords}
       />
-      {/* About section */}
       <About
         aboutRef={aboutRef as React.RefObject<HTMLDivElement>}
         visibleSections={visibleSections}
       />
-      {/* Project section */}
       <Projects
         projectsRef={projectsRef as React.RefObject<HTMLDivElement>}
         visibleSections={visibleSections}
         currentSlide={currentSlide}
         setCurrentSlide={setCurrentSlide}
       />
-      {/* Contact section */}
+
       <Contact
         contactRef={contactRef as React.RefObject<HTMLDivElement>}
         visibleSections={visibleSections}

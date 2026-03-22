@@ -62,6 +62,7 @@ body {
   background-size: 50px 50px, 50px 50px, 100% 100%, 100% 100%, 100% 100%,
     400% 400%;
   background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+  background-attachment: fixed, fixed, scroll, scroll, scroll, scroll;
   animation: cosmicShift 20s ease infinite;
   position: relative;
   overflow: hidden;
@@ -192,9 +193,10 @@ body {
       #0a0a0f 80%,
       #0f0a1a 100%
     );
-  background-size: 60px 60px, 60px 60px, 100% 100%, 100% 100%, 100% 100%,
+  background-size: 50px 50px, 50px 50px, 100% 100%, 100% 100%, 100% 100%,
     400% 400%;
   background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+  background-attachment: fixed, fixed, scroll, scroll, scroll, scroll;
   animation: cosmicShift 22s ease infinite;
   position: relative;
   overflow: hidden;
@@ -277,9 +279,10 @@ body {
       #0a0a0f 80%,
       #0f0a1a 100%
     );
-  background-size: 55px 55px, 55px 55px, 100% 100%, 100% 100%, 100% 100%,
+  background-size: 50px 50px, 50px 50px, 100% 100%, 100% 100%, 100% 100%,
     400% 400%;
   background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+  background-attachment: fixed, fixed, scroll, scroll, scroll, scroll;
   animation: cosmicShift 19s ease infinite;
   position: relative;
   overflow: hidden;
@@ -375,9 +378,10 @@ body {
       #0a0a0f 90%,
       #0f0a1a 100%
     );
-  background-size: 58px 58px, 58px 58px, 100% 100%, 100% 100%, 100% 100%,
+  background-size: 50px 50px, 50px 50px, 100% 100%, 100% 100%, 100% 100%,
     400% 400%;
   background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+  background-attachment: fixed, fixed, scroll, scroll, scroll, scroll;
   animation: cosmicShift 21s ease infinite;
   position: relative;
   overflow: hidden;
@@ -640,4 +644,114 @@ body {
   animation-delay: 0s, 0.4s;
   box-shadow: 0 4px 20px rgba(0, 173, 181, 0.5), 0 0 40px rgba(0, 173, 181, 0.3),
     0 0 60px rgba(138, 43, 226, 0.2), inset 0 0 20px rgba(0, 173, 181, 0.1);
+}
+
+/* ===================== */
+/* Shiver Border Effects  */
+/* ===================== */
+
+/* Hero: Cyan electric — fast, erratic voltage spikes */
+@keyframes shiverBorderHero {
+  0%   { box-shadow: 0 0 0 2px rgba(0,173,181,0.85), 0 0 14px rgba(0,173,181,0.35); }
+  8%   { box-shadow: 0 0 0 4px rgba(0,210,220,1),    0 0 32px rgba(0,173,181,0.7), 0 0 64px rgba(0,173,181,0.25); }
+  16%  { box-shadow: 0 0 0 2px rgba(0,173,181,0.6),  0 0 8px  rgba(0,173,181,0.2); }
+  28%  { box-shadow: 0 0 0 5px rgba(0,230,240,1),    0 0 42px rgba(0,173,181,0.8), 0 0 80px rgba(0,173,181,0.3); }
+  38%  { box-shadow: 0 0 0 2px rgba(0,173,181,0.7),  0 0 10px rgba(0,173,181,0.2); }
+  52%  { box-shadow: 0 0 0 3px rgba(0,173,181,0.9),  0 0 22px rgba(0,173,181,0.45); }
+  64%  { box-shadow: 0 0 0 2px rgba(0,173,181,0.5),  0 0 6px  rgba(0,173,181,0.15); }
+  76%  { box-shadow: 0 0 0 4px rgba(0,210,220,1),    0 0 36px rgba(0,173,181,0.75), 0 0 70px rgba(0,173,181,0.28); }
+  88%  { box-shadow: 0 0 0 2px rgba(0,173,181,0.7),  0 0 14px rgba(0,173,181,0.3); }
+  100% { box-shadow: 0 0 0 2px rgba(0,173,181,0.85), 0 0 14px rgba(0,173,181,0.35); }
+}
+
+.shiver-border-hero {
+  animation: shiverBorderHero 1.8s ease-in-out infinite;
+}
+
+/* About: Purple mystic — slow, dreamy undulation */
+@keyframes shiverBorderAbout {
+  0%, 100% {
+    box-shadow:
+      0 0 0 2px rgba(138,43,226,0.65),
+      0 0 18px rgba(138,43,226,0.25),
+      0 0 40px rgba(0,173,181,0.08);
+  }
+  30% {
+    box-shadow:
+      0 0 0 3px rgba(160,60,250,0.9),
+      0 0 36px rgba(138,43,226,0.5),
+      0 0 72px rgba(138,43,226,0.2),
+      0 0 110px rgba(0,173,181,0.08);
+  }
+  60% {
+    box-shadow:
+      0 0 0 4px rgba(180,80,255,1),
+      0 0 50px rgba(138,43,226,0.6),
+      0 0 90px rgba(138,43,226,0.25);
+  }
+  80% {
+    box-shadow:
+      0 0 0 2px rgba(138,43,226,0.75),
+      0 0 24px rgba(138,43,226,0.35);
+  }
+}
+
+.shiver-border-about {
+  animation: shiverBorderAbout 4s ease-in-out infinite;
+}
+
+/* Projects: Cyan→Purple color-cycling — energetic, multi-hue */
+@keyframes shiverBorderProjects {
+  0%   {
+    box-shadow:
+      0 0 0 2px rgba(0,173,181,0.9),
+      0 0 18px rgba(0,173,181,0.4);
+  }
+  20%  {
+    box-shadow:
+      0 0 0 3px rgba(60,120,255,0.9),
+      0 0 28px rgba(60,120,255,0.45),
+      0 0 56px rgba(60,120,255,0.15);
+  }
+  40%  {
+    box-shadow:
+      0 0 0 4px rgba(138,43,226,1),
+      0 0 38px rgba(138,43,226,0.55),
+      0 0 76px rgba(138,43,226,0.2);
+  }
+  60%  {
+    box-shadow:
+      0 0 0 3px rgba(80,180,220,0.95),
+      0 0 28px rgba(0,173,181,0.5),
+      0 0 56px rgba(0,173,181,0.18);
+  }
+  80%  {
+    box-shadow:
+      0 0 0 5px rgba(0,220,230,1),
+      0 0 44px rgba(0,173,181,0.65),
+      0 0 88px rgba(0,173,181,0.25);
+  }
+  100% {
+    box-shadow:
+      0 0 0 2px rgba(0,173,181,0.9),
+      0 0 18px rgba(0,173,181,0.4);
+  }
+}
+
+.shiver-border-projects {
+  animation: shiverBorderProjects 3.2s linear infinite;
+}
+
+/* Contact: Double-pulse heartbeat — warm teal with bright flares */
+@keyframes shiverBorderContact {
+  0%   { box-shadow: 0 0 0 2px rgba(0,173,181,0.6),  0 0 12px rgba(0,173,181,0.2); }
+  10%  { box-shadow: 0 0 0 4px rgba(0,210,220,1),    0 0 34px rgba(0,173,181,0.65), 0 0 68px rgba(0,173,181,0.22); }
+  22%  { box-shadow: 0 0 0 2px rgba(0,173,181,0.55), 0 0 10px rgba(0,173,181,0.18); }
+  34%  { box-shadow: 0 0 0 5px rgba(0,230,240,1),    0 0 48px rgba(0,173,181,0.75), 0 0 96px rgba(138,43,226,0.15); }
+  50%  { box-shadow: 0 0 0 2px rgba(0,173,181,0.5),  0 0 10px rgba(0,173,181,0.15); }
+  100% { box-shadow: 0 0 0 2px rgba(0,173,181,0.6),  0 0 12px rgba(0,173,181,0.2); }
+}
+
+.shiver-border-contact {
+  animation: shiverBorderContact 2.4s ease-in-out infinite;
 }

@@ -13,7 +13,7 @@ export default function Projects({
     <section
       ref={projectsRef}
       id="projects"
-      className="sticky top-0 min-h-screen flex flex-col items-center justify-center cosmic-bg-projects text-white py-12 sm:py-16 lg:py-20"
+      className="sticky top-0 min-h-screen flex flex-col items-center justify-center cosmic-bg-projects text-white py-12 sm:py-16 lg:py-20 shiver-border-projects"
     >
       <div className="w-full h-full flex justify-center items-center px-4 sm:px-6 lg:px-8 xl:px-20">
         <div className="flex flex-col items-start w-full max-w-7xl">

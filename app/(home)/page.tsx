@@ -10,8 +10,9 @@ import Main from "@/components/PageSections/Main";
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
   const [visibleSections, setVisibleSections] = useState<Set<string>>(
-    new Set()
+    new Set(),
   );
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isRocketLaunching, setIsRocketLaunching] = useState(false);
@@ -33,9 +34,12 @@ export default function Home() {
 
       // Show remaining words sequentially
       words.slice(1).forEach((_, index) => {
-        const timeout = setTimeout(() => {
-          setVisibleWords(index + 2); // +2 because index starts at 0 and we already showed word 1
-        }, 100 + (index + 1) * 200); // 200ms delay between each word
+        const timeout = setTimeout(
+          () => {
+            setVisibleWords(index + 2); // +2 because index starts at 0 and we already showed word 1
+          },
+          100 + (index + 1) * 200,
+        ); // 200ms delay between each word
         timeouts.push(timeout);
       });
 
@@ -55,6 +59,18 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 300);
+
+      const sections = ["contact", "projects", "about", "hero"];
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+            setActiveSection(id);
+            break;
+          }
+        }
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -131,15 +147,13 @@ export default function Home() {
         scrollToSection={scrollToSection}
         setIsMenuOpen={setIsMenuOpen}
         isMenuOpen={isMenuOpen}
-        isRocketLaunching={isRocketLaunching}
+        activeSection={activeSection}
       />
-
       <FullScreenMenu
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}
         scrollToSection={scrollToSection}
       />
-
       <Main
         setIsHeroHovered={setIsHeroHovered}
         isHeroHovered={isHeroHovered}
@@ -151,9 +165,7 @@ export default function Home() {
         setCurrentSlide={setCurrentSlide}
         contactRef={contactRef as React.RefObject<HTMLDivElement>}
       />
-
       <Footer />
-
       <ScrollToTopButton
         isRocketLaunching={isRocketLaunching}
         scrollToTop={scrollToTop}

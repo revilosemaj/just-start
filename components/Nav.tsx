@@ -1,29 +1,17 @@
 "use client";
-import { useState, useEffect } from "react";
 
 export default function Nav({
   scrollToSection,
   setIsMenuOpen,
   isMenuOpen,
-  isRocketLaunching,
+  activeSection,
 }: {
   scrollToSection: (id: string) => void;
   setIsMenuOpen: (isOpen: boolean) => void;
   isMenuOpen: boolean;
-  isRocketLaunching: boolean;
+  activeSection: string;
 }) {
-  const [activeMenu, setActiveMenu] = useState("Hero");
-
-  useEffect(() => {
-    if (isRocketLaunching) {
-      setTimeout(() => {
-        setActiveMenu("Hero");
-      }, 1000);
-    }
-  }, [isRocketLaunching]);
-
   const handleGotoSection = (id: string) => {
-    setActiveMenu(id);
     scrollToSection(id);
   };
 
@@ -47,7 +35,7 @@ export default function Nav({
             <span className="relative z-10">About</span>
             <span
               className={`absolute inset-0 bg-gradient-to-r from-[#00ADB5] to-[#8a2be2] group-hover:opacity-100 ${
-                activeMenu === "about" ? "opacity-100" : "opacity-0"
+                activeSection === "about" ? "opacity-100" : "opacity-0"
               } transition-opacity duration-300 rounded-lg`}
             />
           </button>
@@ -58,7 +46,7 @@ export default function Nav({
             <span className="relative z-10">Projects</span>
             <span
               className={`absolute inset-0 bg-gradient-to-r from-[#00ADB5] to-[#8a2be2] group-hover:opacity-100 ${
-                activeMenu === "projects" ? "opacity-100" : "opacity-0"
+                activeSection === "projects" ? "opacity-100" : "opacity-0"
               } transition-opacity duration-300 rounded-lg`}
             />
           </button>
@@ -69,7 +57,7 @@ export default function Nav({
             <span className="relative z-10">Contact</span>
             <span
               className={`absolute inset-0 bg-gradient-to-r from-[#00ADB5] to-[#8a2be2] group-hover:opacity-100 ${
-                activeMenu === "contact" ? "opacity-100" : "opacity-0"
+                activeSection === "contact" ? "opacity-100" : "opacity-0"
               } transition-opacity duration-300 rounded-lg`}
             />
           </button>

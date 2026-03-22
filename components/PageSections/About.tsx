@@ -6,7 +6,7 @@ export default function About({
   visibleSections: Set<string>;
 }) {
   return (
-    <section ref={aboutRef} id="about" className="cosmic-bg-about">
+    <section ref={aboutRef} id="about" className="cosmic-bg-about shiver-border-about">
       <div className="sticky top-0 min-h-screen flex flex-col lg:flex-row items-center justify-center  text-[#00ADB5] py-20 lg:py-0 lg:max-w-[1024px] mx-auto">
         <div className="w-full h-full flex justify-center items-center px-4 sm:px-6 lg:px-8 mb-8 lg:mb-0">
           <div
