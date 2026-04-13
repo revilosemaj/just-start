@@ -1,51 +1,37 @@
-import About from "@/components/PageSections/About";
-import Contact from "@/components/PageSections/Contact";
 import Hero from "@/components/PageSections/Hero";
+import Services from "@/components/PageSections/Services";
 import Projects from "@/components/PageSections/Projects";
+import WorkExperience from "@/components/PageSections/WorkExperience";
+import Testimonials from "@/components/PageSections/Testimonials";
+import EducationSkills from "@/components/PageSections/EducationSkills";
+import Contact from "@/components/PageSections/Contact";
 
 export default function Main({
-  setIsHeroHovered,
-  isHeroHovered,
-  visibleWords,
-  aboutRef,
-  visibleSections,
+  servicesRef,
   projectsRef,
-  currentSlide,
-  setCurrentSlide,
+  experienceRef,
+  testimonialsRef,
+  educationRef,
   contactRef,
+  visibleSections,
 }: {
-  setIsHeroHovered: (isHovered: boolean) => void;
-  isHeroHovered: boolean;
-  visibleWords: number;
-  aboutRef: React.RefObject<HTMLDivElement>;
+  servicesRef: React.RefObject<HTMLDivElement>;
   projectsRef: React.RefObject<HTMLDivElement>;
-  currentSlide: number;
-  setCurrentSlide: React.Dispatch<React.SetStateAction<number>>;
+  experienceRef: React.RefObject<HTMLDivElement>;
+  testimonialsRef: React.RefObject<HTMLDivElement>;
+  educationRef: React.RefObject<HTMLDivElement>;
   contactRef: React.RefObject<HTMLDivElement>;
   visibleSections: Set<string>;
 }) {
   return (
-    <main className="relative">
-      <Hero
-        setIsHeroHovered={setIsHeroHovered}
-        isHeroHovered={isHeroHovered}
-        visibleWords={visibleWords}
-      />
-      <About
-        aboutRef={aboutRef as React.RefObject<HTMLDivElement>}
-        visibleSections={visibleSections}
-      />
-      <Projects
-        projectsRef={projectsRef as React.RefObject<HTMLDivElement>}
-        visibleSections={visibleSections}
-        currentSlide={currentSlide}
-        setCurrentSlide={setCurrentSlide}
-      />
-
-      <Contact
-        contactRef={contactRef as React.RefObject<HTMLDivElement>}
-        visibleSections={visibleSections}
-      />
+    <main>
+      <Hero />
+      <Services servicesRef={servicesRef} visibleSections={visibleSections} />
+      <Projects projectsRef={projectsRef} visibleSections={visibleSections} />
+      <WorkExperience experienceRef={experienceRef} visibleSections={visibleSections} />
+      <Testimonials testimonialsRef={testimonialsRef} visibleSections={visibleSections} />
+      <EducationSkills educationRef={educationRef} visibleSections={visibleSections} />
+      <Contact contactRef={contactRef} visibleSections={visibleSections} />
     </main>
   );
 }

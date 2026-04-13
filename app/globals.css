@@ -3,22 +3,72 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #222831;
-    --foreground: #ededed;
-  }
+  --background: #1a1f2e;
+  --foreground: #ededed;
+  --accent: #00ADB5;
+  --accent-secondary: #8a2be2;
+  --section-bg: #1a1f2e;
+  --section-bg-alt: #1e2435;
+  --card-bg: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.08);
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: var(--section-bg);
   font-family: var(--font-exo), -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
+}
+
+/* ======================== */
+/* Section Label            */
+/* ======================== */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 600;
+}
+.section-label::before,
+.section-label::after {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+}
+
+/* Section divider line */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0, 173, 181, 0.2), transparent);
+}
+
+/* Portfolio section backgrounds */
+.portfolio-section {
+  background: var(--section-bg);
+}
+.portfolio-section-alt {
+  background: var(--section-bg-alt);
+}
+
+/* Fade-in animation utility */
+.fade-in-up {
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in-up.hidden-init {
+  opacity: 0;
+  transform: translateY(32px);
 }
 
 @layer utilities {

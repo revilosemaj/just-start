@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OJA — Portfolio
+
+Personal portfolio website for **Oliver James Aco**, a Web Developer & Frontend Specialist from the Philippines with 7+ years of experience.
+
+Live at: [ojaco.dev](https://ojaco.dev)
+
+## Tech Stack
+
+- **Framework** — Next.js 16 (App Router)
+- **Language** — TypeScript
+- **Styling** — Tailwind CSS
+- **Email** — EmailJS
+- **Font** — Exo (Google Fonts)
+
+## Sections
+
+| Section | Description |
+|---|---|
+| Hero | Intro with name, bio, and social links |
+| Services | Specialized skills — UI/UX, App Dev, Web Dev |
+| Portfolio | Featured projects with live site previews |
+| Experience | Work history timeline |
+| Testimonials | Client feedback |
+| Education & Skills | Degrees and technical skill bars |
+| Contact | Email contact form via EmailJS |
+
+## Editing Content
+
+All text content lives in one file — **`lib/content.ts`**. Edit it to update names, bios, job history, skills, testimonials, links, etc. without touching any component files.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env.local` file for the contact form:
 
-## Learn More
+```env
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run dev      # development server (Turbopack)
+npm run build    # production build
+npm run start    # production server
+npm run lint     # ESLint
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+```
+app/
+  (home)/page.tsx       # Main page — scroll & section state
+  globals.css           # Global styles & section utilities
+  layout.tsx            # Root layout & font config
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+components/
+  Nav.tsx               # Fixed navigation bar
+  FullScreenMenu.tsx    # Mobile full-screen menu
+  Footer.tsx            # Footer with contact info & socials
+  ScrollToTopButton.tsx # Scroll-to-top button
+  PageSections/
+    Hero.tsx
+    Services.tsx
+    Projects.tsx
+    WorkExperience.tsx
+    Testimonials.tsx
+    EducationSkills.tsx
+    Contact.tsx
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+lib/
+  content.ts            # All text content — edit here
+```

@@ -1,5 +1,7 @@
 "use client";
 
+import { SITE_LOGO, NAV_LINKS } from "@/lib/content";
+
 export default function Nav({
   scrollToSection,
   setIsMenuOpen,
@@ -11,70 +13,46 @@ export default function Nav({
   isMenuOpen: boolean;
   activeSection: string;
 }) {
-  const handleGotoSection = (id: string) => {
-    scrollToSection(id);
-  };
-
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-md border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
-        {/* OJA Logo */}
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#1a1f2e]/80 backdrop-blur-md border-b border-white/[0.06]">
+      <div className="max-w-5xl mx-auto px-6 sm:px-10 py-4 flex items-center justify-between">
+        {/* Logo */}
         <button
-          onClick={() => handleGotoSection("hero")}
-          className="text-xl sm:text-2xl font-bold text-white hover:text-[#00ADB5] transition-colors"
+          onClick={() => scrollToSection("hero")}
+          className="text-xl font-bold text-white hover:text-[#00ADB5] transition-colors tracking-widest"
         >
-          OJA
+          {SITE_LOGO}
         </button>
 
-        {/* Desktop Navigation Links */}
-        <div className="hidden md:flex items-center gap-6 lg:gap-8">
-          <button
-            onClick={() => handleGotoSection("about")}
-            className="group relative px-4 py-2 text-white transition-colors font-medium text-sm lg:text-base overflow-hidden"
-          >
-            <span className="relative z-10">About</span>
-            <span
-              className={`absolute inset-0 bg-gradient-to-r from-[#00ADB5] to-[#8a2be2] group-hover:opacity-100 ${
-                activeSection === "about" ? "opacity-100" : "opacity-0"
-              } transition-opacity duration-300 rounded-lg`}
-            />
-          </button>
-          <button
-            onClick={() => handleGotoSection("projects")}
-            className="group relative px-4 py-2 text-white transition-colors font-medium text-sm lg:text-base overflow-hidden"
-          >
-            <span className="relative z-10">Projects</span>
-            <span
-              className={`absolute inset-0 bg-gradient-to-r from-[#00ADB5] to-[#8a2be2] group-hover:opacity-100 ${
-                activeSection === "projects" ? "opacity-100" : "opacity-0"
-              } transition-opacity duration-300 rounded-lg`}
-            />
-          </button>
-          <button
-            onClick={() => handleGotoSection("contact")}
-            className="group relative px-4 py-2 text-white transition-colors font-medium text-sm lg:text-base overflow-hidden"
-          >
-            <span className="relative z-10">Contact</span>
-            <span
-              className={`absolute inset-0 bg-gradient-to-r from-[#00ADB5] to-[#8a2be2] group-hover:opacity-100 ${
-                activeSection === "contact" ? "opacity-100" : "opacity-0"
-              } transition-opacity duration-300 rounded-lg`}
-            />
-          </button>
+        {/* Desktop links */}
+        <div className="hidden md:flex items-center gap-1">
+          {NAV_LINKS.map((link) => (
+            <button
+              key={link.id}
+              onClick={() => scrollToSection(link.id)}
+              className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 ${
+                activeSection === link.id
+                  ? "text-[#00ADB5]"
+                  : "text-white/60 hover:text-white"
+              }`}
+            >
+              {link.label}
+              <span
+                className="absolute bottom-0 left-4 right-4 h-px bg-[#00ADB5] rounded-full transition-all duration-300"
+                style={{ opacity: activeSection === link.id ? 1 : 0, transform: activeSection === link.id ? "scaleX(1)" : "scaleX(0)" }}
+              />
+            </button>
+          ))}
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile hamburger */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className={`md:hidden relative z-50 text-white hover:text-[#00ADB5] transition-colors ${
-            isMenuOpen ? "text-[#00ADB5]" : ""
-          }`}
+          className="md:hidden text-white/60 hover:text-white transition-colors"
           aria-label="Toggle menu"
         >
           <svg
-            className={`w-6 h-6 transition-transform duration-300 ${
-              isMenuOpen ? "rotate-90" : ""
-            }`}
+            className={`w-6 h-6 transition-transform duration-300 ${isMenuOpen ? "rotate-90" : ""}`}
             fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
