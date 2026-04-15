@@ -5,7 +5,7 @@ import FullScreenMenu from "@/components/FullScreenMenu";
 import { useState, useEffect, useRef } from "react";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import Footer from "@/components/Footer";
-import Main from "@/components/PageSections/Main";
+import Main from "@/components/page-layouts/Main";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

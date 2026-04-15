@@ -32,6 +32,7 @@ export default function Hero() {
                 fill
                 alt={HERO.imageAlt}
                 className="object-cover object-top"
+                loading="eager"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>

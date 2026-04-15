@@ -136,26 +136,30 @@ export const TESTIMONIALS_SECTION = {
 
 export const TESTIMONIALS = [
   {
+    name:     "Mark Angelo Barnatcha",
+    role:     "Sr. Software Engineer",
+    company:  "Accenture Inc,",
+    initials: "MB",
+    src: "/mb_profile.jpg",
+    text:     "Oliver is one of those rare people you can always count on. Whether it's a big project or a last-minute idea at midnight, he shows up — thoughtful, prepared, and somehow already three steps ahead. What impresses me most is how he combines that reliability with genuine creativity. He doesn't just get things done, he finds a better way to do them. Working alongside him, you quickly realize that his ideas aren't just clever — they actually work. Anyone lucky enough to have Oliver in their corner knows exactly what I mean.",
+  },
+  {
     name:     "Alfie Bangcong",
     role:     "Graphic Designer",
     company:  "Pacific Rim",
     initials: "AB",
+    src: "/ab_profile.jpg",
     text:     "We are so thankful to have Oliver on our team. I can always count on him to come to me and talk about any challenges or concerns right away. He delivers clean, well-thought code and is an excellent communicator.",
   },
   {
-    name:     "Sarah Mitchell",
-    role:     "Head of Product",
-    company:  "Stratford Digital",
-    initials: "JR",
-    text:     "Oliver is the real deal. He took our clunky, outdated site and rebuilt it into a fast, beautiful product — responsive on every device, deployed flawlessly. He didn't just write code; he thought through the whole architecture from day one. Honestly the most capable full-stack developer we've worked with.",
+    name:     "Melwin Sabales",
+    role:     "ReactJS Developer",
+    company:  "Stratpoint Technologies Inc,",
+    initials: "MS",
+    src: "/ms_profile.jpg",
+    text:     "I am grateful to have a friend like Oliver, He is not only great friend, but also he's highly experience in Frontend design. His skills is impressive, and he has been valuable mentor to me. Through his guidance, I've developed interest in creating engaging, and beautiful designs using ReactJS. I sincerely appreciate his guidance and encouragement.",
   },
-  {
-    name:     "James Okafor",
-    role:     "Design Lead",
-    company:  "Loopwise",
-    initials: "AF",
-    text:     "We came to Oliver with a half-baked idea and left with a production-ready Next.js app. His command of React, Node, and cloud deployment is seriously impressive — everything came in on time, scaled without a hitch, and looked incredible. He's our go-to for anything web.",
-  },
+  
 ];
 
 // ── Education & Skills ────────────────────────
