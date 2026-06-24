@@ -1,6 +1,6 @@
 # OJA — Portfolio
 
-Personal portfolio website for **Oliver James Aco**, a Web Developer & Frontend Specialist from the Philippines with 7+ years of experience.
+Here's my personal portfolio website. I'm Oliver, a Web Developer & Frontend Specialist from the Philippines with 7+ years of experience.
 
 Live at: [ojaco.dev](https://ojaco.dev)
 
