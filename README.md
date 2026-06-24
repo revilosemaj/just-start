@@ -14,15 +14,15 @@ Live at: [ojaco.dev](https://ojaco.dev)
 
 ## Sections
 
-| Section | Description |
-|---|---|
-| Hero | Intro with name, bio, and social links |
-| Services | Specialized skills — UI/UX, App Dev, Web Dev |
-| Portfolio | Featured projects with live site previews |
-| Experience | Work history timeline |
-| Testimonials | Client feedback |
-| Education & Skills | Degrees and technical skill bars |
-| Contact | Email contact form via EmailJS |
+| Section            | Description                                  |
+| ------------------ | -------------------------------------------- |
+| Hero               | Intro with name, bio, and social links       |
+| Services           | Specialized skills — UI/UX, App Dev, Web Dev |
+| Portfolio          | Featured projects with live site previews    |
+| Experience         | Work history timeline                        |
+| Testimonials       | Client feedback                              |
+| Education & Skills | Degrees and technical skill bars             |
+| Contact            | Email contact form via EmailJS               |
 
 ## Editing Content
 
@@ -69,7 +69,7 @@ components/
   FullScreenMenu.tsx    # Mobile full-screen menu
   Footer.tsx            # Footer with contact info & socials
   ScrollToTopButton.tsx # Scroll-to-top button
-  PageSections/
+  page-layouts/
     Hero.tsx
     Services.tsx
     Projects.tsx

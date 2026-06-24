@@ -1,10 +1,10 @@
-import Hero from "@/components/page-layouts/Hero";
-import Services from "@/components/page-layouts/Services";
-import Projects from "@/components/page-layouts/Projects";
-import WorkExperience from "@/components/page-layouts/WorkExperience";
-import Testimonials from "@/components/page-layouts/Testimonials";
-import EducationSkills from "@/components/page-layouts/EducationSkills";
-import Contact from "@/components/page-layouts/Contact";
+import Hero from '@/components/page-layouts/Hero';
+import Services from '@/components/page-layouts/Services';
+import Projects from '@/components/page-layouts/Projects';
+import WorkExperience from '@/components/page-layouts/WorkExperience';
+import Testimonials from '@/components/page-layouts/Testimonials';
+import EducationSkills from '@/components/page-layouts/EducationSkills';
+import Contact from '@/components/page-layouts/Contact';
 
 export default function Main({
   servicesRef,
