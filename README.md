@@ -8,7 +8,8 @@ Live at: [ojaco.dev](https://ojaco.dev)
 
 - **Framework** — Next.js 16 (App Router)
 - **Language** — TypeScript
-- **Styling** — Tailwind CSS
+- **Styling** — Tailwind CSS 4
+- **Motion** — GSAP (ScrollTrigger, SplitText) + Lenis smooth scroll
 - **Email** — EmailJS
 - **Font** — Exo (Google Fonts)
 
@@ -26,7 +27,7 @@ Live at: [ojaco.dev](https://ojaco.dev)
 
 ## Editing Content
 
-All text content lives in one file — **`lib/content.ts`**. Edit it to update names, bios, job history, skills, testimonials, links, etc. without touching any component files.
+All text content lives in one file — **`lib/data.ts`**. Edit it to update names, bios, job history, skills, testimonials, links, etc. without touching any component files.
 
 ## Getting Started
 
